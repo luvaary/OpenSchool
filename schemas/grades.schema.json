@@ -1,0 +1,26 @@
+// Purpose: JSON Schema for Grade records — per-student grade tracking
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "grades.schema.json",
+  "title": "Grades",
+  "description": "Schema for grade/mark records linked to assignments and students.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "student_id", "class_id", "assignment_id", "points", "max_points"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique grade record ID" },
+      "student_id": { "type": "string", "description": "Student user reference" },
+      "class_id": { "type": "string", "description": "Class reference" },
+      "assignment_id": { "type": "string", "description": "Assignment reference" },
+      "points": { "type": "number", "description": "Points awarded" },
+      "max_points": { "type": "number", "description": "Maximum possible points" },
+      "weight": { "type": "number", "minimum": 0, "maximum": 1, "description": "Weight factor (0-1)" },
+      "letter_grade": { "type": ["string", "null"], "description": "Optional letter grade (A+, A, B, etc.)" },
+      "graded_by": { "type": "string", "description": "Teacher who graded" },
+      "graded_at": { "type": "string", "format": "date-time", "description": "When graded" },
+      "comments": { "type": ["string", "null"], "description": "Grading comments" }
+    },
+    "additionalProperties": false
+  }
+}

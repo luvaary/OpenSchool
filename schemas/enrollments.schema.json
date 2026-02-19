@@ -1,0 +1,20 @@
+// Purpose: JSON Schema for Enrollment records — maps students to classes
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "enrollments.schema.json",
+  "title": "Enrollments",
+  "description": "Schema for student-class enrollment mappings.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "student_id", "class_id", "enrolled_at"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique enrollment record ID" },
+      "student_id": { "type": "string", "description": "Reference to user ID (student)" },
+      "class_id": { "type": "string", "description": "Reference to class ID" },
+      "enrolled_at": { "type": "string", "format": "date", "description": "Enrollment date" },
+      "status": { "type": "string", "enum": ["active", "withdrawn", "completed"], "description": "Enrollment status" }
+    },
+    "additionalProperties": false
+  }
+}

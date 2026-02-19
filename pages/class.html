@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- Purpose: Per-class detail page - roster, attendance tools, assignments for a single class -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Detail - OpenSchool</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../assets/logo-placeholder.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="demo-banner" role="alert">Static demo mode - not for production.</div>
+
+  <header class="site-header" role="banner">
+    <a href="../index.html" class="site-header__brand">
+      <img src="../assets/logo-placeholder.svg" alt="" width="36" height="36">
+      <span>OpenSchool</span>
+    </a>
+    <div class="site-header__actions">
+      <button class="btn btn--ghost btn--sm" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-toggle__label">Dark</span>
+      </button>
+      <button class="btn btn--secondary btn--sm" id="logout-btn">Sign Out</button>
+    </div>
+  </header>
+
+  <main class="main-content" id="main-content" style="margin-left:0;">
+    <div class="page-header">
+      <div>
+        <a href="../index.html" class="text-sm" style="text-decoration:none;">Back to Dashboard</a>
+        <h1 class="page-header__title" id="class-name">Class Detail</h1>
+        <p class="page-header__subtitle" id="class-info">Loading…</p>
+      </div>
+    </div>
+
+    <!-- Class Roster -->
+    <section aria-label="Class Roster" class="mb-6">
+      <div class="card">
+        <div class="card__header"><h2 class="card__title">Roster</h2></div>
+        <div class="card__body">
+          <div class="table-wrapper">
+            <table class="data-table" aria-label="Student roster">
+              <thead><tr><th>Student</th><th>Email</th><th>Year</th><th>Attendance Rate</th></tr></thead>
+              <tbody id="roster-body"><tr><td colspan="4" class="table-empty">Loading…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Today's Attendance -->
+    <section aria-label="Today's Attendance" class="mb-6">
+      <div class="card">
+        <div class="card__header">
+          <h2 class="card__title">Today's Attendance</h2>
+          <button class="btn btn--primary btn--sm" id="save-attendance-btn">Save Attendance</button>
+        </div>
+        <div class="card__body" id="class-attendance">
+          <p class="text-muted">Loading…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Class Assignments -->
+    <section aria-label="Assignments" class="mb-6">
+      <div class="card">
+        <div class="card__header">
+          <h2 class="card__title">Assignments</h2>
+          <button class="btn btn--primary btn--sm" id="add-class-assignment">+ New Assignment</button>
+        </div>
+        <div class="card__body" id="class-assignments">
+          <p class="text-muted">Loading…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" id="modal">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-title">Modal</h2>
+        <button class="modal__close" id="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal__body" id="modal-body"></div>
+      <div class="modal__footer" id="modal-footer"></div>
+    </div>
+  </div>
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script type="module">
+    // Purpose: Class detail page - loads class data from URL params
+    import { initClassPage } from '../js/main.js';
+    const params = new URLSearchParams(window.location.search);
+    initClassPage(params.get('id'));
+  </script>
+</body>
+</html>

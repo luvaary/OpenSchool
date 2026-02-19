@@ -1,0 +1,65 @@
+# OpenSchool – UI Scaffold Prompt
+# Model: claude-opus-4-6
+# Purpose: Generate new page scaffolds following OpenSchool patterns.
+
+You are building a new page for OpenSchool. Follow these rules exactly:
+
+## Template Structure
+
+```html
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PAGE_TITLE}} – OpenSchool</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="app-header">
+        <div class="brand">
+            <img src="assets/logo-placeholder.svg" alt="OpenSchool" width="32" height="32">
+            <span>OpenSchool</span>
+        </div>
+        <div class="header-actions">
+            <button id="theme-toggle" class="btn btn--ghost btn--sm" aria-label="Toggle theme">
+                <span class="theme-toggle__label">Dark</span>
+            </button>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+        <!-- Use same nav items as index.html -->
+    </nav>
+
+    <main id="main-content" class="main-content">
+        <h1>{{PAGE_TITLE}}</h1>
+        <!-- Page content here -->
+    </main>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+    <div id="modal-overlay" class="modal-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true">
+            <div class="modal-header"><h2 id="modal-title"></h2><button class="modal-close" aria-label="Close">&times;</button></div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer" id="modal-footer"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+```
+
+## Rules
+
+1. Always include skip-link, ARIA landmarks, and lang attribute.
+2. Use semantic elements (`<main>`, `<nav>`, `<section>`, `<article>`).
+3. Every interactive element needs `aria-label` or visible label.
+4. Use CSS classes from existing components — avoid inline styles.
+5. For pages in `pages/` subdirectory, prefix paths with `../`.
+6. Include toast and modal containers for JS module compatibility.
+7. Use `data-role` attributes if content varies by user role.

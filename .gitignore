@@ -1,0 +1,30 @@
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# ── Secrets ───────────────────────────────────────────────────────────────────
+server/secrets.json
+server/openschool.db
+
+# ── Build artifacts ───────────────────────────────────────────────────────────
+css/styles.min.css
+js/bundle.js
+js/bundle.min.js
+js/bundle.min.js.map
+
+# ── OS / Editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/settings.json
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ── Package lock (optional — include if you want reproducible builds) ─────────
+# package-lock.json

@@ -1,0 +1,65 @@
+# OpenSchool – Theme Generator Prompt
+# Model: claude-opus-4-6
+# Purpose: Generate new CSS themes that follow the design token system.
+
+You are creating a new theme for OpenSchool. The theme system uses CSS custom
+properties defined in `css/tokens.css`.
+
+## How Themes Work
+
+Themes are applied via the `data-theme` attribute on `<html>`:
+- `data-theme="light"` — default (`:root` styles)
+- `data-theme="dark"` — dark mode
+- `data-theme="high-contrast"` — high contrast mode
+
+## Creating a New Theme
+
+Add a new selector block in `css/tokens.css`:
+
+```css
+[data-theme="{{THEME_NAME}}"] {
+    /* Surfaces */
+    --color-bg:        #...;  /* page background */
+    --color-surface:   #...;  /* card/panel background */
+    --color-border:    #...;  /* borders */
+
+    /* Text */
+    --color-text:         #...;  /* primary text */
+    --color-text-muted:   #...;  /* secondary text */
+
+    /* Brand */
+    --color-primary:      #...;  /* buttons, links — must be ≥4.5:1 on surface */
+    --color-primary-hover: #...;
+    --color-primary-text: #...;  /* text on primary background */
+
+    /* Semantic */
+    --color-success:   #...;
+    --color-warning:   #...;
+    --color-danger:    #...;
+    --color-info:      #...;
+
+    /* Shadows */
+    --shadow-sm: ...;
+    --shadow-md: ...;
+    --shadow-lg: ...;
+}
+```
+
+## Contrast Requirements (WCAG 2.1 AA)
+
+| Pair                          | Min Ratio |
+|-------------------------------|-----------|
+| text on bg                    | 4.5:1     |
+| text on surface               | 4.5:1     |
+| primary on surface            | 4.5:1     |
+| primary-text on primary       | 4.5:1     |
+| muted text on surface         | 4.5:1     |
+| success/warning/danger on bg  | 3:1 (UI)  |
+
+Use https://webaim.org/resources/contrastchecker/ to verify.
+Document the contrast ratio in a comment next to each color.
+
+## Theme Toggle
+
+Update `js/main.js` `setupThemeToggle()` to cycle through the new theme.
+Store the preference in `localStorage` key `openschool_theme`.

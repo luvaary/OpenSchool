@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- Purpose: Landing dashboard - routes to role-specific pages (teacher/student/admin) -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OpenSchool Dashboard - FOSS school management platform">
+  <title>Dashboard - OpenSchool</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Skip links -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Security Banner -->
+  <div class="demo-banner" role="alert">
+    Static demo mode - not for production. Use the <a href="server/README.md">server-backed option</a> for real deployments.
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <a href="index.html" class="site-header__brand" aria-label="OpenSchool home">
+      <img src="assets/logo-placeholder.svg" alt="" width="36" height="36">
+      <span>OpenSchool</span>
+    </a>
+    <button class="site-header__menu-btn" aria-label="Toggle navigation" aria-expanded="false" id="menu-toggle">
+      <span class="hamburger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div class="site-header__actions">
+      <!-- Theme toggle -->
+      <button class="btn btn--ghost btn--sm" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+        <span class="theme-toggle__label">Dark</span>
+      </button>
+      <!-- Reduce motion toggle -->
+      <button class="btn btn--ghost btn--sm" id="motion-toggle" aria-label="Toggle reduced motion" title="Toggle reduced motion">
+        <span class="theme-toggle__label">Motion</span>
+      </button>
+      <!-- User info -->
+      <div class="site-header__user">
+        <span id="user-display-name">Guest</span>
+        <span class="chip chip--info" id="user-role-badge">guest</span>
+      </div>
+      <button class="btn btn--secondary btn--sm" id="logout-btn">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar__label">Navigation</div>
+    <ul class="nav-list" role="list">
+      <li class="nav-item">
+        <a href="index.html" class="nav-link nav-link--active" aria-current="page">
+          <span class="nav-link__icon" aria-hidden="true"></span> Dashboard
+        </a>
+      </li>
+      <li class="nav-item" id="nav-attendance">
+        <a href="#attendance" class="nav-link">
+          <span class="nav-link__icon" aria-hidden="true"></span> Attendance
+        </a>
+      </li>
+      <li class="nav-item" id="nav-assignments">
+        <a href="#assignments" class="nav-link">
+          <span class="nav-link__icon" aria-hidden="true"></span> Assignments
+        </a>
+      </li>
+      <li class="nav-item" id="nav-gradebook">
+        <a href="#gradebook" class="nav-link">
+          <span class="nav-link__icon" aria-hidden="true"></span> Gradebook
+        </a>
+      </li>
+      <li class="nav-item" id="nav-timetable">
+        <a href="#timetable" class="nav-link">
+          <span class="nav-link__icon" aria-hidden="true"></span> Timetable
+        </a>
+      </li>
+      <li class="nav-item" id="nav-announcements">
+        <a href="#announcements" class="nav-link">
+          <span class="nav-link__icon" aria-hidden="true"></span> Announcements
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar__label mt-6">Quick Links</div>
+    <ul class="nav-list" role="list">
+      <li class="nav-item" id="nav-admin-link" class="hidden">
+        <a href="admin.html" class="nav-link">
+          <span class="nav-link__icon" aria-hidden="true"></span> Admin Panel
+        </a>
+      </li>
+    </ul>
+
+    <!-- Demo Role Switcher -->
+    <div class="sidebar__section mt-6" style="border-top: 1px solid var(--color-border); padding-top: var(--space-4);">
+      <div class="sidebar__label">Demo Role Switcher</div>
+      <div class="flex flex-col gap-2" style="padding: 0 var(--space-4);">
+        <button class="btn btn--secondary btn--sm btn--block role-switch" data-role="admin">Switch to Admin</button>
+        <button class="btn btn--secondary btn--sm btn--block role-switch" data-role="teacher">Switch to Teacher</button>
+        <button class="btn btn--secondary btn--sm btn--block role-switch" data-role="student">Switch to Student</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
+    <!-- Page Header -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-header__title" id="dashboard-title">Dashboard</h1>
+        <p class="page-header__subtitle" id="dashboard-subtitle">Welcome back!</p>
+      </div>
+      <div class="flex gap-2">
+        <button class="btn btn--secondary btn--sm" id="export-csv-btn" title="Export data as CSV">
+          Export CSV
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="card-grid card-grid--stats mb-6" id="stats-row">
+      <!-- Populated by JS based on role -->
+    </div>
+
+    <!-- Announcements Section -->
+    <section id="announcements-section" aria-label="Announcements">
+      <div class="card mb-6">
+        <div class="card__header">
+          <h2 class="card__title">Announcements</h2>
+          <button class="btn btn--primary btn--sm hidden" id="new-announcement-btn">+ New</button>
+        </div>
+        <div class="card__body" id="announcements-list">
+          <p class="text-muted">Loading announcements…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timetable Section -->
+    <section id="timetable-section" aria-label="Timetable">
+      <div class="card mb-6">
+        <div class="card__header">
+          <h2 class="card__title">Today's Timetable</h2>
+        </div>
+        <div class="card__body" id="timetable-today">
+          <p class="text-muted">Loading timetable…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Attendance Section (Teacher/Admin) -->
+    <section id="attendance-section" aria-label="Attendance" class="hidden">
+      <div class="card mb-6">
+        <div class="card__header">
+          <h2 class="card__title">Attendance</h2>
+          <div class="flex gap-2">
+            <select class="form-select" id="attendance-class-select" aria-label="Select class for attendance">
+              <option value="">Select class...</option>
+            </select>
+            <input type="date" class="form-input" id="attendance-date" aria-label="Attendance date"
+                   style="max-width: 180px;">
+            <button class="btn btn--secondary btn--sm" id="attendance-export-btn">Export CSV</button>
+          </div>
+        </div>
+        <div class="card__body" id="attendance-roster">
+          <p class="text-muted">Select a class to take attendance.</p>
+        </div>
+      </div>
+      <!-- Attendance History -->
+      <div class="card mb-6">
+        <div class="card__header">
+          <h2 class="card__title">Attendance History</h2>
+        </div>
+        <div class="card__body">
+          <div class="table-wrapper" id="attendance-history-table">
+            <p class="text-muted">Select a class to view history.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Assignments Section -->
+    <section id="assignments-section" aria-label="Assignments">
+      <div class="card mb-6">
+        <div class="card__header">
+          <h2 class="card__title">Assignments</h2>
+          <button class="btn btn--primary btn--sm hidden" id="new-assignment-btn">+ Create Assignment</button>
+        </div>
+        <div class="card__body" id="assignments-list">
+          <p class="text-muted">Loading assignments…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gradebook Section -->
+    <section id="gradebook-section" aria-label="Gradebook">
+      <div class="card mb-6">
+        <div class="card__header">
+          <h2 class="card__title">Gradebook</h2>
+          <div class="flex gap-2">
+            <select class="form-select" id="gradebook-class-select" aria-label="Select class for gradebook">
+              <option value="">Select class...</option>
+            </select>
+            <button class="btn btn--secondary btn--sm" id="gradebook-export-btn">Export CSV</button>
+          </div>
+        </div>
+        <div class="card__body" id="gradebook-content">
+          <p class="text-muted">Loading grades…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Container -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" id="modal">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-title">Modal</h2>
+        <button class="modal__close" id="modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal__body" id="modal-body"></div>
+      <div class="modal__footer" id="modal-footer"></div>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-label="Notifications"></div>
+
+  <script type="module">
+    // Purpose: Main dashboard initialization - orchestrates all page modules
+    import { init } from './js/main.js';
+    init();
+  </script>
+</body>
+</html>

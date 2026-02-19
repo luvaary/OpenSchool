@@ -1,0 +1,24 @@
+// Purpose: JSON Schema for Class records — defines structure for class/course groups
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "classes.schema.json",
+  "title": "Classes",
+  "description": "Schema for class/course/subject groups in OpenSchool.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "subject", "teacher_id", "year_level", "period"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique class identifier" },
+      "name": { "type": "string", "description": "Display name e.g. '10A English'" },
+      "subject": { "type": "string", "description": "Subject area" },
+      "teacher_id": { "type": "string", "description": "ID of the assigned teacher" },
+      "year_level": { "type": "integer", "description": "Year/grade level" },
+      "period": { "type": "string", "description": "Timetable period label" },
+      "room": { "type": "string", "description": "Room/location" },
+      "color": { "type": "string", "description": "Hex color for timetable display" },
+      "active": { "type": "boolean", "description": "Whether class is currently active" }
+    },
+    "additionalProperties": false
+  }
+}

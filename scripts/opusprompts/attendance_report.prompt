@@ -1,0 +1,57 @@
+# OpenSchool – Attendance Report Prompt
+# Model: claude-opus-4-6
+# Purpose: Generate attendance summary reports from OpenSchool data.
+
+You are generating an attendance report for OpenSchool. Use the data in
+`data/sample/attendance.json` cross-referenced with `data/sample/users.json`
+and `data/sample/classes.json`.
+
+## Report Structure
+
+### 1. Daily Summary
+For a given date, list:
+- Total students expected (from enrollments)
+- Present / Absent / Late / Excused counts
+- Attendance rate percentage
+
+### 2. Student Detail
+For each student:
+- Name, student ID, year level
+- Total days: present / absent / late / excused
+- Attendance rate (present+late / total × 100)
+- Flag if attendance rate < 90%
+
+### 3. Class Summary
+For each class:
+- Class name, teacher
+- Average daily attendance rate
+- Students with attendance issues (< 90%)
+
+## Output Format
+
+Generate the report as:
+1. **Console table** (Markdown format)
+2. **CSV file** (for download via `storage.exportCSV()`)
+3. **JSON** (for dashboard stat cards)
+
+## Data Access Pattern
+
+```javascript
+import { loadData } from '../js/storage.js';
+
+const attendance   = await loadData('attendance');
+const users        = await loadData('users');
+const classes      = await loadData('classes');
+const enrollments  = await loadData('enrollments');
+
+// Filter by date range
+const filtered = attendance.filter(a =>
+    a.date >= startDate && a.date <= endDate
+);
+```
+
+## Statistical Calculations
+
+- **Attendance Rate** = (present + late) / total_records × 100
+- **Chronic Absence** = attendance rate < 90%
+- **Severe Absence** = attendance rate < 80%

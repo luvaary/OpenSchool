@@ -1,0 +1,12 @@
+[
+  { "id": "e-001", "student_id": "u-student-001", "class_id": "c-eng10a", "enrolled_at": "2025-02-01", "status": "active" },
+  { "id": "e-002", "student_id": "u-student-001", "class_id": "c-math10a", "enrolled_at": "2025-02-01", "status": "active" },
+  { "id": "e-003", "student_id": "u-student-001", "class_id": "c-hist10a", "enrolled_at": "2025-02-01", "status": "active" },
+  { "id": "e-004", "student_id": "u-student-002", "class_id": "c-eng10a", "enrolled_at": "2025-02-01", "status": "active" },
+  { "id": "e-005", "student_id": "u-student-002", "class_id": "c-math10a", "enrolled_at": "2025-02-01", "status": "active" },
+  { "id": "e-006", "student_id": "u-student-002", "class_id": "c-hist10a", "enrolled_at": "2025-02-01", "status": "active" },
+  { "id": "e-007", "student_id": "u-student-003", "class_id": "c-sci11b", "enrolled_at": "2025-02-01", "status": "active" },
+  { "id": "e-008", "student_id": "u-student-004", "class_id": "c-eng10a", "enrolled_at": "2025-02-01", "status": "active" },
+  { "id": "e-009", "student_id": "u-student-004", "class_id": "c-math10a", "enrolled_at": "2025-02-01", "status": "active" },
+  { "id": "e-010", "student_id": "u-student-005", "class_id": "c-sci11b", "enrolled_at": "2025-02-01", "status": "active" }
+]

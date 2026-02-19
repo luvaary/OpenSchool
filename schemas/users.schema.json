@@ -1,0 +1,24 @@
+// Purpose: JSON Schema for User records — defines structure for all system users
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "users.schema.json",
+  "title": "Users",
+  "description": "Schema for user accounts in OpenSchool. Each user has a unique ID, role, and profile.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "username", "display_name", "role", "email", "active"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique user identifier (UUID-style)" },
+      "username": { "type": "string", "minLength": 3, "maxLength": 32, "description": "Login username" },
+      "display_name": { "type": "string", "description": "Full display name" },
+      "role": { "type": "string", "enum": ["admin", "teacher", "student", "parent"], "description": "User role" },
+      "email": { "type": "string", "format": "email", "description": "Contact email" },
+      "active": { "type": "boolean", "description": "Whether account is active" },
+      "year_level": { "type": ["integer", "null"], "description": "Year/grade level (students only)" },
+      "created_at": { "type": "string", "format": "date-time", "description": "Account creation timestamp" },
+      "avatar_url": { "type": ["string", "null"], "description": "Optional avatar path" }
+    },
+    "additionalProperties": false
+  }
+}

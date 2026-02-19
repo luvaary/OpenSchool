@@ -1,0 +1,6 @@
+[
+  { "id": "g-001", "student_id": "u-student-001", "class_id": "c-eng10a", "assignment_id": "a-001", "points": 85, "max_points": 100, "weight": 0.3, "letter_grade": "B+", "graded_by": "u-teacher-001", "graded_at": "2025-02-25T16:00:00Z", "comments": "Strong thesis" },
+  { "id": "g-002", "student_id": "u-student-001", "class_id": "c-eng10a", "assignment_id": "a-002", "points": 42, "max_points": 50, "weight": 0.15, "letter_grade": "B+", "graded_by": "u-teacher-001", "graded_at": "2025-02-20T10:00:00Z", "comments": "Good reflection" },
+  { "id": "g-003", "student_id": "u-student-001", "class_id": "c-math10a", "assignment_id": "a-003", "points": 72, "max_points": 80, "weight": 0.25, "letter_grade": "A-", "graded_by": "u-teacher-002", "graded_at": "2025-02-19T15:00:00Z", "comments": "Review Q14" },
+  { "id": "g-004", "student_id": "u-student-002", "class_id": "c-math10a", "assignment_id": "a-003", "points": 65, "max_points": 80, "weight": 0.25, "letter_grade": "B", "graded_by": "u-teacher-002", "graded_at": "2025-02-20T09:00:00Z", "comments": "Calculation errors" }
+]

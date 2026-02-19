@@ -1,0 +1,74 @@
+[
+  {
+    "id": "a-001",
+    "class_id": "c-eng10a",
+    "title": "Essay: Persuasive Writing",
+    "description": "Write a 500-word persuasive essay on a topic of your choice. Include a clear thesis statement, supporting arguments, and a conclusion.",
+    "created_by": "u-teacher-001",
+    "created_at": "2025-02-10T09:00:00Z",
+    "due_date": "2025-02-24T23:59:00Z",
+    "max_points": 100,
+    "weight": 0.3,
+    "resources": [
+      { "label": "Essay Structure Guide", "url": "#guide-essay" },
+      { "label": "Rubric", "url": "#rubric-persuasive" }
+    ],
+    "status": "published"
+  },
+  {
+    "id": "a-002",
+    "class_id": "c-eng10a",
+    "title": "Reading Response: Chapter 5",
+    "description": "Submit a one-page reading response to Chapter 5 of the class novel. Address theme, character development, and your personal reaction.",
+    "created_by": "u-teacher-001",
+    "created_at": "2025-02-12T10:00:00Z",
+    "due_date": "2025-02-19T23:59:00Z",
+    "max_points": 50,
+    "weight": 0.15,
+    "resources": [],
+    "status": "published"
+  },
+  {
+    "id": "a-003",
+    "class_id": "c-math10a",
+    "title": "Problem Set: Quadratic Equations",
+    "description": "Complete questions 1-20 from the quadratic equations worksheet. Show all working.",
+    "created_by": "u-teacher-002",
+    "created_at": "2025-02-11T08:30:00Z",
+    "due_date": "2025-02-18T23:59:00Z",
+    "max_points": 80,
+    "weight": 0.25,
+    "resources": [
+      { "label": "Worksheet PDF", "url": "#worksheet-quadratics" }
+    ],
+    "status": "published"
+  },
+  {
+    "id": "a-004",
+    "class_id": "c-sci11b",
+    "title": "Lab Report: Chemical Reactions",
+    "description": "Write up the lab experiment from Week 3. Include hypothesis, method, results table, and conclusion.",
+    "created_by": "u-teacher-001",
+    "created_at": "2025-02-14T11:00:00Z",
+    "due_date": "2025-02-28T23:59:00Z",
+    "max_points": 120,
+    "weight": 0.35,
+    "resources": [
+      { "label": "Lab Template", "url": "#template-lab" }
+    ],
+    "status": "published"
+  },
+  {
+    "id": "a-005",
+    "class_id": "c-hist10a",
+    "title": "Research: Industrial Revolution",
+    "description": "A 3-page research piece on one aspect of the Industrial Revolution. Cite at least 3 sources.",
+    "created_by": "u-teacher-002",
+    "created_at": "2025-02-13T09:00:00Z",
+    "due_date": "2025-03-01T23:59:00Z",
+    "max_points": 100,
+    "weight": 0.3,
+    "resources": [],
+    "status": "draft"
+  }
+]

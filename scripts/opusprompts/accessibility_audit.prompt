@@ -1,0 +1,52 @@
+# OpenSchool – Accessibility Audit Prompt
+# Model: claude-opus-4-6
+# Purpose: Audit OpenSchool pages for WCAG 2.1 AA compliance.
+
+You are performing an accessibility audit on OpenSchool. Check each HTML page
+against the following criteria and report findings.
+
+## Audit Checklist
+
+### Perceivable
+- [ ] All images have meaningful `alt` text (or `alt=""` for decorative)
+- [ ] Color is not the only means of conveying information
+- [ ] Contrast ratios meet 4.5:1 for normal text, 3:1 for large text
+- [ ] Text can be resized to 200% without loss of content
+- [ ] `prefers-reduced-motion` media query is respected
+
+### Operable
+- [ ] All functionality available via keyboard
+- [ ] No keyboard traps
+- [ ] Skip-link present and functional
+- [ ] Focus indicators visible (`.focus-visible` styles)
+- [ ] Focus order follows logical reading order
+- [ ] Modal focus trapping works correctly
+
+### Understandable
+- [ ] `lang` attribute on `<html>`
+- [ ] Form inputs have associated `<label>` elements
+- [ ] Error messages are descriptive and linked via `aria-describedby`
+- [ ] Consistent navigation across pages
+
+### Robust
+- [ ] Valid HTML (run through W3C validator)
+- [ ] ARIA roles and properties used correctly
+- [ ] `aria-live` regions for dynamic content (toast, status)
+- [ ] `role="dialog"` + `aria-modal="true"` on modals
+- [ ] Interactive elements use correct semantic elements (`<button>`, `<a>`)
+
+## How to Report
+
+For each issue found, report:
+1. **Page**: Which HTML file
+2. **Element**: CSS selector or description
+3. **Issue**: What's wrong
+4. **WCAG Criterion**: e.g., 1.4.3 Contrast
+5. **Fix**: Suggested remediation
+
+## Automated Checks
+
+Also recommend running:
+- `npx axe-core` (npm install @axe-core/cli)
+- `npx pa11y <url>` (npm install pa11y)
+- Lighthouse accessibility audit in Chrome DevTools

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "sub-001",
+    "assignment_id": "a-001",
+    "student_id": "u-student-001",
+    "submitted_at": "2025-02-23T14:30:00Z",
+    "content": "Persuasive essay on renewable energy adoption in schools...",
+    "file_path": null,
+    "grade": 85,
+    "feedback": "Strong thesis and well-structured arguments. Work on transitions between paragraphs.",
+    "graded_at": "2025-02-25T16:00:00Z",
+    "status": "graded"
+  },
+  {
+    "id": "sub-002",
+    "assignment_id": "a-001",
+    "student_id": "u-student-002",
+    "submitted_at": "2025-02-24T22:45:00Z",
+    "content": "Essay arguing for extended lunch breaks to improve student wellbeing...",
+    "file_path": null,
+    "grade": null,
+    "feedback": null,
+    "graded_at": null,
+    "status": "submitted"
+  },
+  {
+    "id": "sub-003",
+    "assignment_id": "a-002",
+    "student_id": "u-student-001",
+    "submitted_at": "2025-02-18T20:00:00Z",
+    "content": "Chapter 5 explores the theme of isolation through the protagonist's journey...",
+    "file_path": null,
+    "grade": 42,
+    "feedback": "Excellent personal reflection. Consider deeper analysis of symbolism.",
+    "graded_at": "2025-02-20T10:00:00Z",
+    "status": "graded"
+  },
+  {
+    "id": "sub-004",
+    "assignment_id": "a-003",
+    "student_id": "u-student-001",
+    "submitted_at": "2025-02-17T19:00:00Z",
+    "content": "Completed questions 1-20 with full working shown.",
+    "file_path": null,
+    "grade": 72,
+    "feedback": "Good work overall. Review question 14 — check your factoring step.",
+    "graded_at": "2025-02-19T15:00:00Z",
+    "status": "graded"
+  },
+  {
+    "id": "sub-005",
+    "assignment_id": "a-003",
+    "student_id": "u-student-002",
+    "submitted_at": "2025-02-18T21:30:00Z",
+    "content": "Problem set solutions attached.",
+    "file_path": null,
+    "grade": 65,
+    "feedback": "Several calculation errors. Please review the quadratic formula steps.",
+    "graded_at": "2025-02-20T09:00:00Z",
+    "status": "graded"
+  },
+  {
+    "id": "sub-006",
+    "assignment_id": "a-004",
+    "student_id": "u-student-003",
+    "submitted_at": "2025-02-27T16:00:00Z",
+    "content": "Lab report on exothermic vs endothermic reactions...",
+    "file_path": null,
+    "grade": null,
+    "feedback": null,
+    "graded_at": null,
+    "status": "submitted"
+  }
+]

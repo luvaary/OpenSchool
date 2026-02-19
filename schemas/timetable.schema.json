@@ -1,0 +1,23 @@
+// Purpose: JSON Schema for Timetable slots — weekly schedule grid entries
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "timetable.schema.json",
+  "title": "TimetableSlots",
+  "description": "Schema for timetable/schedule slots (weekly recurring).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "class_id", "day", "start_time", "end_time"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique slot ID" },
+      "class_id": { "type": "string", "description": "Class reference" },
+      "day": { "type": "string", "enum": ["monday", "tuesday", "wednesday", "thursday", "friday"], "description": "Day of week" },
+      "start_time": { "type": "string", "pattern": "^\\d{2}:\\d{2}$", "description": "Start time (HH:MM, 24h)" },
+      "end_time": { "type": "string", "pattern": "^\\d{2}:\\d{2}$", "description": "End time (HH:MM, 24h)" },
+      "room": { "type": "string", "description": "Room/location" },
+      "teacher_id": { "type": "string", "description": "Teacher user reference" },
+      "color": { "type": "string", "description": "Display color (hex)" }
+    },
+    "additionalProperties": false
+  }
+}

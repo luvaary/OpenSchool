@@ -1,0 +1,164 @@
+/* Purpose: Design tokens for colors, spacing, typography, and accessible contrast-checked palettes */
+/* Version: 1.1 */
+
+:root {
+  /* -- Brand Colors -- */
+  /* Light theme (default). Contrast ratios noted vs white/dark backgrounds */
+  --color-primary:       #1a56db; /* 4.63:1 on white, AA pass */
+  --color-primary-hover: #1e40af; /* 5.96:1 on white, AA pass */
+  --color-primary-light: #dbeafe; /* Use for backgrounds only */
+  --color-secondary:     #047857; /* 4.58:1 on white, AA pass */
+  --color-secondary-hover: #065f46;
+
+  /* -- Semantic Colors -- */
+  --color-success:  #16a34a; /* 3.2:1 on white, use with bold/large text or bg */
+  --color-warning:  #d97706; /* 3.1:1 on white, pair with dark text */
+  --color-danger:   #dc2626; /* 4.0:1 on white, AA large text pass */
+  --color-info:     #2563eb; /* 4.56:1 on white, AA pass */
+
+  /* -- Neutrals -- */
+  --color-bg:           #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary:  #f1f5f9;
+  --color-surface:      #ffffff;
+  --color-border:       #e2e8f0;
+  --color-border-strong:#cbd5e1;
+  --color-text:         #0f172a; /* 16.75:1 on white */
+  --color-text-secondary: #475569; /* 7.06:1 on white, AA pass */
+  --color-text-muted:   #94a3b8; /* 3.06:1, decorative only */
+  --color-text-inverse: #ffffff;
+
+  /* -- Spacing Scale (4px base) -- */
+  --space-1:  0.25rem; /* 4px */
+  --space-2:  0.5rem;  /* 8px */
+  --space-3:  0.75rem; /* 12px */
+  --space-4:  1rem;    /* 16px */
+  --space-5:  1.25rem; /* 20px */
+  --space-6:  1.5rem;  /* 24px */
+  --space-8:  2rem;    /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+
+  /* -- Border Radius -- */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.375rem;
+  --radius-lg:   0.5rem;
+  --radius-xl:   0.75rem;
+  --radius-full: 9999px;
+
+  /* -- Typography Scale (modular, ratio ~1.25) -- */
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:   ui-monospace, "Cascadia Code", "Fira Code", monospace;
+
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.125rem;  /* 18px */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px */
+  --text-3xl:  1.875rem;  /* 30px */
+  --text-4xl:  2.25rem;   /* 36px */
+
+  --leading-tight:  1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.75;
+
+  --weight-normal:  400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  /* -- Shadows -- */
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md:  0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg:  0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+  --shadow-xl:  0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+
+  /* -- Transitions -- */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* -- Z-index layers -- */
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-modal:    300;
+  --z-toast:    400;
+
+  /* -- Layout -- */
+  --sidebar-width: 260px;
+  --header-height: 64px;
+  --max-content-width: 1200px;
+}
+
+/* -- Dark Theme -- */
+[data-theme="dark"] {
+  --color-primary:       #60a5fa;
+  --color-primary-hover: #93bbfd;
+  --color-primary-light: #1e3a5f;
+  --color-secondary:     #34d399;
+  --color-secondary-hover: #6ee7b7;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger:  #f87171;
+  --color-info:    #60a5fa;
+
+  --color-bg:           #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary:  #334155;
+  --color-surface:      #1e293b;
+  --color-border:       #334155;
+  --color-border-strong:#475569;
+  --color-text:         #f1f5f9; /* 15.4:1 on #0f172a */
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted:   #64748b;
+  --color-text-inverse: #0f172a;
+
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md:  0 4px 6px rgba(0,0,0,0.4);
+  --shadow-lg:  0 10px 15px rgba(0,0,0,0.4);
+}
+
+/* -- High Contrast Theme -- */
+[data-theme="high-contrast"] {
+  --color-primary:       #0000ee;
+  --color-primary-hover: #0000cc;
+  --color-primary-light: #e0e0ff;
+  --color-secondary:     #006600;
+
+  --color-success: #008000;
+  --color-warning: #cc6600;
+  --color-danger:  #cc0000;
+  --color-info:    #0000cc;
+
+  --color-bg:           #ffffff;
+  --color-bg-secondary: #f0f0f0;
+  --color-bg-tertiary:  #e0e0e0;
+  --color-surface:      #ffffff;
+  --color-border:       #000000;
+  --color-border-strong:#000000;
+  --color-text:         #000000;
+  --color-text-secondary: #333333;
+  --color-text-muted:   #555555;
+  --color-text-inverse: #ffffff;
+}
+
+/* -- Reduced Motion -- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+[data-reduce-motion="true"] *,
+[data-reduce-motion="true"] *::before,
+[data-reduce-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}

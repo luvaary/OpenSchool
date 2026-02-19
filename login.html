@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Purpose: Login page - static demo mode authentication with security banner -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OpenSchool Login - FOSS school management platform">
+  <title>Login - OpenSchool</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#login-form" class="skip-link">Skip to login form</a>
+
+  <!-- Security Banner -->
+  <div class="demo-banner" role="alert">
+    Static demo mode - not for production. Use the <a href="server/README.md">server-backed option</a> for real deployments.
+  </div>
+
+  <main class="login-page" id="main-content">
+    <div class="login-card card" role="region" aria-label="Login">
+      <div class="card__body">
+        <!-- Logo -->
+        <div class="login-logo">
+          <img src="assets/logo-placeholder.svg" alt="" width="48" height="48">
+          <h1 style="font-size: var(--text-2xl);">OpenSchool</h1>
+          <p class="text-sm text-muted">Sign in to your account</p>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" aria-label="Login form" novalidate>
+          <div class="form-group">
+            <label for="username" class="form-label form-label--required">Username</label>
+            <input type="text" id="username" name="username" class="form-input"
+                   placeholder="e.g. teacher, student, admin"
+                   autocomplete="username" required
+                   aria-describedby="username-help">
+            <p id="username-help" class="form-help">
+              Demo accounts: <strong>admin</strong>, <strong>teacher</strong>, <strong>student</strong>
+            </p>
+            <p id="username-error" class="form-error hidden" role="alert"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" name="password" class="form-input"
+                   placeholder="Any value in demo mode"
+                   autocomplete="current-password"
+                   aria-describedby="password-help">
+            <p id="password-help" class="form-help">
+              In static demo mode, passwords are not checked.
+            </p>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block btn--lg" id="login-btn">
+            Sign In
+          </button>
+        </form>
+
+        <!-- Role Quick Switch (demo helper) -->
+        <div class="mt-6 text-center" role="group" aria-label="Quick demo login">
+          <p class="text-sm text-muted mb-2">Quick demo access:</p>
+          <div class="flex gap-2" style="justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="btn btn--secondary btn--sm demo-login" data-username="admin">
+              Admin
+            </button>
+            <button type="button" class="btn btn--secondary btn--sm demo-login" data-username="teacher">
+              Teacher
+            </button>
+            <button type="button" class="btn btn--secondary btn--sm demo-login" data-username="student">
+              Student
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-label="Notifications"></div>
+
+  <script type="module">
+    // Purpose: Login page initialization - handles static demo authentication
+    import { initAuth } from './js/components/auth.js';
+    initAuth();
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+[
+  { "id": "tt-001", "class_id": "c-eng10a", "day": "monday", "start_time": "09:00", "end_time": "09:50", "room": "B12", "teacher_id": "u-teacher-001", "color": "#4A90D9" },
+  { "id": "tt-002", "class_id": "c-math10a", "day": "monday", "start_time": "10:00", "end_time": "10:50", "room": "C04", "teacher_id": "u-teacher-002", "color": "#E07B39" },
+  { "id": "tt-003", "class_id": "c-sci11b", "day": "monday", "start_time": "11:00", "end_time": "11:50", "room": "Lab1", "teacher_id": "u-teacher-001", "color": "#50B878" },
+  { "id": "tt-004", "class_id": "c-hist10a", "day": "monday", "start_time": "13:00", "end_time": "13:50", "room": "A08", "teacher_id": "u-teacher-002", "color": "#9B59B6" },
+  { "id": "tt-005", "class_id": "c-eng10a", "day": "tuesday", "start_time": "09:00", "end_time": "09:50", "room": "B12", "teacher_id": "u-teacher-001", "color": "#4A90D9" },
+  { "id": "tt-006", "class_id": "c-math10a", "day": "tuesday", "start_time": "10:00", "end_time": "10:50", "room": "C04", "teacher_id": "u-teacher-002", "color": "#E07B39" },
+  { "id": "tt-007", "class_id": "c-sci11b", "day": "wednesday", "start_time": "11:00", "end_time": "11:50", "room": "Lab1", "teacher_id": "u-teacher-001", "color": "#50B878" },
+  { "id": "tt-008", "class_id": "c-hist10a", "day": "wednesday", "start_time": "13:00", "end_time": "13:50", "room": "A08", "teacher_id": "u-teacher-002", "color": "#9B59B6" },
+  { "id": "tt-009", "class_id": "c-eng10a", "day": "thursday", "start_time": "09:00", "end_time": "09:50", "room": "B12", "teacher_id": "u-teacher-001", "color": "#4A90D9" },
+  { "id": "tt-010", "class_id": "c-math10a", "day": "thursday", "start_time": "10:00", "end_time": "10:50", "room": "C04", "teacher_id": "u-teacher-002", "color": "#E07B39" },
+  { "id": "tt-011", "class_id": "c-sci11b", "day": "friday", "start_time": "11:00", "end_time": "12:50", "room": "Lab1", "teacher_id": "u-teacher-001", "color": "#50B878" },
+  { "id": "tt-012", "class_id": "c-hist10a", "day": "friday", "start_time": "13:00", "end_time": "13:50", "room": "A08", "teacher_id": "u-teacher-002", "color": "#9B59B6" }
+]

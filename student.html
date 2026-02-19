@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- Purpose: Student dashboard - view assignments, grades, timetable, announcements -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - OpenSchool</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="demo-banner" role="alert">
+    Static demo mode - not for production.
+  </div>
+
+  <header class="site-header" role="banner">
+    <a href="index.html" class="site-header__brand">
+      <img src="assets/logo-placeholder.svg" alt="" width="36" height="36">
+      <span>OpenSchool</span>
+    </a>
+    <button class="site-header__menu-btn" aria-label="Toggle navigation" id="menu-toggle">
+      <span class="hamburger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div class="site-header__actions">
+      <button class="btn btn--ghost btn--sm" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-toggle__label">Dark</span>
+      </button>
+      <div class="site-header__user">
+        <span id="user-display-name">Student</span>
+        <span class="chip chip--success">student</span>
+      </div>
+      <button class="btn btn--secondary btn--sm" id="logout-btn">Sign Out</button>
+    </div>
+  </header>
+
+  <nav class="sidebar" id="sidebar" aria-label="Student navigation">
+    <div class="sidebar__label">Student Menu</div>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Dashboard</a></li>
+      <li class="nav-item"><a href="student.html" class="nav-link nav-link--active" aria-current="page"><span class="nav-link__icon" aria-hidden="true"></span> My Classes</a></li>
+      <li class="nav-item"><a href="#assignments" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Assignments</a></li>
+      <li class="nav-item"><a href="#grades" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> My Grades</a></li>
+      <li class="nav-item"><a href="#timetable" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Timetable</a></li>
+      <li class="nav-item"><a href="#announcements" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Announcements</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content" id="main-content">
+    <div class="page-header">
+      <div>
+        <h1 class="page-header__title">Student Dashboard</h1>
+        <p class="page-header__subtitle" id="student-subtitle">Your classes and work</p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="card-grid card-grid--stats mb-6" id="student-stats"></div>
+
+    <!-- Upcoming Assignments -->
+    <section aria-label="Upcoming Assignments" class="mb-6">
+      <div class="card">
+        <div class="card__header"><h2 class="card__title">Upcoming Assignments</h2></div>
+        <div class="card__body" id="student-assignments">
+          <p class="text-muted">Loading…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Grades Summary -->
+    <section aria-label="Grades" class="mb-6">
+      <div class="card">
+        <div class="card__header"><h2 class="card__title">My Grades</h2></div>
+        <div class="card__body" id="student-grades">
+          <p class="text-muted">Loading…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Today's Timetable -->
+    <section aria-label="Today's Schedule" class="mb-6">
+      <div class="card">
+        <div class="card__header"><h2 class="card__title">Today's Schedule</h2></div>
+        <div class="card__body" id="student-timetable">
+          <p class="text-muted">Loading…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Announcements -->
+    <section aria-label="Announcements" class="mb-6">
+      <div class="card">
+        <div class="card__header"><h2 class="card__title">Announcements</h2></div>
+        <div class="card__body" id="student-announcements">
+          <p class="text-muted">Loading…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" id="modal">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-title">Modal</h2>
+        <button class="modal__close" id="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal__body" id="modal-body"></div>
+      <div class="modal__footer" id="modal-footer"></div>
+    </div>
+  </div>
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script type="module">
+    import { init } from './js/main.js';
+    init();
+  </script>
+</body>
+</html>

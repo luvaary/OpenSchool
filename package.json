@@ -1,0 +1,26 @@
+{
+  "name": "openschool",
+  "version": "1.1.0",
+  "description": "FOSS static web application replacing proprietary school platforms",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-node.js",
+    "validate": "node scripts/schema-check.js",
+    "smoke": "node scripts/ui-smoke-test.js",
+    "csv": "node scripts/csv-to-json.js",
+    "test": "npm run validate && npm run smoke"
+  },
+  "devDependencies": {
+    "terser": "^5.31.0",
+    "clean-css-cli": "^5.6.3"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/openschool.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

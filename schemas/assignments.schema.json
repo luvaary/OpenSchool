@@ -1,0 +1,36 @@
+// Purpose: JSON Schema for Assignment records — defines homework/task structure
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "assignments.schema.json",
+  "title": "Assignments",
+  "description": "Schema for assignments/tasks created by teachers.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "class_id", "title", "created_by", "due_date", "max_points"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique assignment ID" },
+      "class_id": { "type": "string", "description": "Class this assignment belongs to" },
+      "title": { "type": "string", "description": "Assignment title" },
+      "description": { "type": "string", "description": "Full description/instructions" },
+      "created_by": { "type": "string", "description": "Teacher user ID" },
+      "created_at": { "type": "string", "format": "date-time", "description": "Creation timestamp" },
+      "due_date": { "type": "string", "format": "date-time", "description": "Due date/time" },
+      "max_points": { "type": "number", "minimum": 0, "description": "Maximum points" },
+      "weight": { "type": "number", "minimum": 0, "maximum": 1, "description": "Weight for grade calculation (0-1)" },
+      "resources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": { "type": "string" },
+            "url": { "type": "string" }
+          }
+        },
+        "description": "Linked resources/materials"
+      },
+      "status": { "type": "string", "enum": ["draft", "published", "closed"], "description": "Publication status" }
+    },
+    "additionalProperties": false
+  }
+}

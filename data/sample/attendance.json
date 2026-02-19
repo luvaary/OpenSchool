@@ -1,0 +1,15 @@
+[
+  { "id": "att-001", "class_id": "c-eng10a", "student_id": "u-student-001", "date": "2025-02-17", "status": "present", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-17T09:05:00Z", "note": null },
+  { "id": "att-002", "class_id": "c-eng10a", "student_id": "u-student-002", "date": "2025-02-17", "status": "present", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-17T09:05:00Z", "note": null },
+  { "id": "att-003", "class_id": "c-eng10a", "student_id": "u-student-004", "date": "2025-02-17", "status": "late", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-17T09:15:00Z", "note": "Arrived 10 min late" },
+  { "id": "att-004", "class_id": "c-eng10a", "student_id": "u-student-001", "date": "2025-02-18", "status": "present", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-18T09:03:00Z", "note": null },
+  { "id": "att-005", "class_id": "c-eng10a", "student_id": "u-student-002", "date": "2025-02-18", "status": "absent", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-18T09:05:00Z", "note": "Unexcused" },
+  { "id": "att-006", "class_id": "c-eng10a", "student_id": "u-student-004", "date": "2025-02-18", "status": "present", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-18T09:04:00Z", "note": null },
+  { "id": "att-007", "class_id": "c-math10a", "student_id": "u-student-001", "date": "2025-02-17", "status": "present", "recorded_by": "u-teacher-002", "recorded_at": "2025-02-17T10:02:00Z", "note": null },
+  { "id": "att-008", "class_id": "c-math10a", "student_id": "u-student-002", "date": "2025-02-17", "status": "present", "recorded_by": "u-teacher-002", "recorded_at": "2025-02-17T10:02:00Z", "note": null },
+  { "id": "att-009", "class_id": "c-math10a", "student_id": "u-student-004", "date": "2025-02-17", "status": "present", "recorded_by": "u-teacher-002", "recorded_at": "2025-02-17T10:02:00Z", "note": null },
+  { "id": "att-010", "class_id": "c-sci11b", "student_id": "u-student-003", "date": "2025-02-17", "status": "present", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-17T11:05:00Z", "note": null },
+  { "id": "att-011", "class_id": "c-sci11b", "student_id": "u-student-005", "date": "2025-02-17", "status": "excused", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-17T11:05:00Z", "note": "Medical appointment" },
+  { "id": "att-012", "class_id": "c-sci11b", "student_id": "u-student-003", "date": "2025-02-18", "status": "present", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-18T11:02:00Z", "note": null },
+  { "id": "att-013", "class_id": "c-sci11b", "student_id": "u-student-005", "date": "2025-02-18", "status": "present", "recorded_by": "u-teacher-001", "recorded_at": "2025-02-18T11:02:00Z", "note": null }
+]

@@ -1,0 +1,25 @@
+// Purpose: JSON Schema for Submission records — student work submissions against assignments
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "submissions.schema.json",
+  "title": "Submissions",
+  "description": "Schema for student submissions against assignments.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "assignment_id", "student_id", "submitted_at"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique submission ID" },
+      "assignment_id": { "type": "string", "description": "Reference to assignment" },
+      "student_id": { "type": "string", "description": "Student user ID" },
+      "submitted_at": { "type": "string", "format": "date-time", "description": "Submission timestamp" },
+      "content": { "type": "string", "description": "Text content of submission" },
+      "file_path": { "type": ["string", "null"], "description": "Optional file attachment path" },
+      "grade": { "type": ["number", "null"], "description": "Points awarded (null if ungraded)" },
+      "feedback": { "type": ["string", "null"], "description": "Teacher feedback/comments" },
+      "graded_at": { "type": ["string", "null"], "format": "date-time", "description": "When graded" },
+      "status": { "type": "string", "enum": ["submitted", "graded", "returned", "late"], "description": "Submission status" }
+    },
+    "additionalProperties": false
+  }
+}

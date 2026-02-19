@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- Purpose: Admin dashboard - user management, system settings, school-wide views -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - OpenSchool</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="demo-banner" role="alert">
+    Static demo mode - not for production.
+  </div>
+
+  <header class="site-header" role="banner">
+    <a href="index.html" class="site-header__brand">
+      <img src="assets/logo-placeholder.svg" alt="" width="36" height="36">
+      <span>OpenSchool</span>
+    </a>
+    <button class="site-header__menu-btn" aria-label="Toggle navigation" id="menu-toggle">
+      <span class="hamburger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div class="site-header__actions">
+      <button class="btn btn--ghost btn--sm" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-toggle__label">Dark</span>
+      </button>
+      <div class="site-header__user">
+        <span id="user-display-name">Admin</span>
+        <span class="chip chip--danger">admin</span>
+      </div>
+      <button class="btn btn--secondary btn--sm" id="logout-btn">Sign Out</button>
+    </div>
+  </header>
+
+  <nav class="sidebar" id="sidebar" aria-label="Admin navigation">
+    <div class="sidebar__label">Admin Menu</div>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Dashboard</a></li>
+      <li class="nav-item"><a href="admin.html" class="nav-link nav-link--active" aria-current="page"><span class="nav-link__icon" aria-hidden="true"></span> Administration</a></li>
+      <li class="nav-item"><a href="#users" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Users</a></li>
+      <li class="nav-item"><a href="#classes" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Classes</a></li>
+      <li class="nav-item"><a href="#announcements" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Announcements</a></li>
+      <li class="nav-item"><a href="#reports" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Reports</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content" id="main-content">
+    <div class="page-header">
+      <div>
+        <h1 class="page-header__title">Administration</h1>
+        <p class="page-header__subtitle">System overview and management</p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="card-grid card-grid--stats mb-6" id="admin-stats"></div>
+
+    <!-- Users Table -->
+    <section aria-label="User Management" class="mb-6">
+      <div class="card">
+        <div class="card__header">
+          <h2 class="card__title">Users</h2>
+          <button class="btn btn--primary btn--sm" id="add-user-btn">+ Add User</button>
+        </div>
+        <div class="card__body">
+          <div class="table-wrapper">
+            <table class="data-table data-table--striped" id="users-table" aria-label="User accounts">
+              <thead>
+                <tr>
+                  <th data-sortable>Name</th>
+                  <th data-sortable>Username</th>
+                  <th data-sortable>Role</th>
+                  <th data-sortable>Email</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="users-table-body">
+                <tr><td colspan="6" class="table-empty">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Classes Table -->
+    <section aria-label="Class Management" class="mb-6">
+      <div class="card">
+        <div class="card__header">
+          <h2 class="card__title">Classes</h2>
+        </div>
+        <div class="card__body">
+          <div class="table-wrapper">
+            <table class="data-table" id="classes-table" aria-label="Classes">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Subject</th>
+                  <th>Teacher</th>
+                  <th>Year</th>
+                  <th>Students</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="classes-table-body">
+                <tr><td colspan="6" class="table-empty">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- School-wide Reports -->
+    <section aria-label="Reports" class="mb-6">
+      <div class="card">
+        <div class="card__header">
+          <h2 class="card__title">Reports</h2>
+        </div>
+        <div class="card__body flex gap-3" style="flex-wrap:wrap;">
+          <button class="btn btn--secondary" id="report-attendance">Attendance Summary CSV</button>
+          <button class="btn btn--secondary" id="report-grades">Grade Distribution CSV</button>
+          <button class="btn btn--secondary" id="report-print">Printable Report</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" id="modal">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-title">Modal</h2>
+        <button class="modal__close" id="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal__body" id="modal-body"></div>
+      <div class="modal__footer" id="modal-footer"></div>
+    </div>
+  </div>
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script type="module">
+    import { init } from './js/main.js';
+    init();
+  </script>
+</body>
+</html>

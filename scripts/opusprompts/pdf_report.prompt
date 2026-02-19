@@ -1,0 +1,101 @@
+# OpenSchool – PDF Report Prompt
+# Model: claude-opus-4-6
+# Purpose: Generate printable PDF reports from OpenSchool data.
+
+You are creating a PDF report generator for OpenSchool. Since this is a static
+web app, PDF generation uses the browser's `window.print()` with print-specific
+CSS styles.
+
+## Print CSS (already in css/styles.css)
+
+The existing `@media print` block handles:
+- Hiding sidebar, header, buttons, toasts, modals
+- White background, black text
+- Breaking pages between sections
+- Showing URLs after links
+
+## Generating a Report
+
+### Option A: Browser Print (No Dependencies)
+
+```javascript
+function generateReport(title, contentHtml) {
+    const win = window.open('', '_blank');
+    win.document.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>${title} – OpenSchool Report</title>
+            <style>
+                body { font-family: system-ui, sans-serif; padding: 2rem; }
+                h1 { border-bottom: 2px solid #1a56db; padding-bottom: 0.5rem; }
+                table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+                th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+                th { background: #f3f4f6; }
+                .footer { margin-top: 2rem; font-size: 0.8rem; color: #666; }
+                @media print {
+                    .no-print { display: none; }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>${title}</h1>
+            <p>Generated: ${new Date().toLocaleDateString()}</p>
+            ${contentHtml}
+            <div class="footer">
+                <p>OpenSchool – Open Source School Platform</p>
+            </div>
+            <div class="no-print">
+                <button onclick="window.print()">Print / Save as PDF</button>
+                <button onclick="window.close()">Close</button>
+            </div>
+        </body>
+        </html>
+    `);
+    win.document.close();
+}
+```
+
+### Option B: Server-Side (Flask + WeasyPrint)
+
+If using the Flask server, install `weasyprint`:
+
+```python
+# server/app.py - add route
+from weasyprint import HTML
+
+@app.route('/api/report/<report_type>')
+def generate_pdf(report_type):
+    html_content = render_template(f'reports/{report_type}.html', data=get_report_data())
+    pdf = HTML(string=html_content).write_pdf()
+    return Response(pdf, mimetype='application/pdf',
+                    headers={'Content-Disposition': f'attachment; filename={report_type}.pdf'})
+```
+
+## Available Report Types
+
+1. **Attendance Summary** — daily/weekly/term attendance rates per class
+2. **Student Progress** — grades + attendance for a student
+3. **Class Report** — all students in a class with grades + attendance
+4. **Assignment Status** — submission rates, average grades per assignment
+5. **Admin Overview** — school-wide statistics
+
+## Data Tables to Include
+
+Each report should include:
+- Header with school name, report title, date range
+- Summary statistics (totals, averages, percentages)
+- Detail table with per-record rows
+- Footer with generation timestamp
+
+## Report Data Access
+
+```javascript
+// Gather report data
+const users = await storage.loadData('users');
+const classes = await storage.loadData('classes');
+const attendance = await storage.loadData('attendance');
+const grades = await storage.loadData('grades');
+const assignments = await storage.loadData('assignments');
+```

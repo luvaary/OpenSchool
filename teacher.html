@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- Purpose: Teacher dashboard - full-role view with attendance, assignments, gradebook, timetable -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard - OpenSchool</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="demo-banner" role="alert">
+    Static demo mode - not for production.
+  </div>
+
+  <header class="site-header" role="banner">
+    <a href="index.html" class="site-header__brand">
+      <img src="assets/logo-placeholder.svg" alt="" width="36" height="36">
+      <span>OpenSchool</span>
+    </a>
+    <button class="site-header__menu-btn" aria-label="Toggle navigation" id="menu-toggle">
+      <span class="hamburger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div class="site-header__actions">
+      <button class="btn btn--ghost btn--sm" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-toggle__label">Dark</span>
+      </button>
+      <div class="site-header__user">
+        <span id="user-display-name">Teacher</span>
+        <span class="chip chip--info">teacher</span>
+      </div>
+      <button class="btn btn--secondary btn--sm" id="logout-btn">Sign Out</button>
+    </div>
+  </header>
+
+  <nav class="sidebar" id="sidebar" aria-label="Teacher navigation">
+    <div class="sidebar__label">Teacher Menu</div>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Dashboard</a></li>
+      <li class="nav-item"><a href="teacher.html" class="nav-link nav-link--active" aria-current="page"><span class="nav-link__icon" aria-hidden="true"></span> My Classes</a></li>
+      <li class="nav-item"><a href="#attendance" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Attendance</a></li>
+      <li class="nav-item"><a href="#assignments" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Assignments</a></li>
+      <li class="nav-item"><a href="#gradebook" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Gradebook</a></li>
+      <li class="nav-item"><a href="#timetable" class="nav-link"><span class="nav-link__icon" aria-hidden="true"></span> Timetable</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content" id="main-content">
+    <div class="page-header">
+      <div>
+        <h1 class="page-header__title">Teacher Dashboard</h1>
+        <p class="page-header__subtitle" id="teacher-subtitle">Your classes and tools</p>
+      </div>
+    </div>
+
+    <!-- My Classes -->
+    <section aria-label="My Classes" class="mb-6">
+      <div class="card-grid" id="teacher-classes">
+        <p class="text-muted">Loading classes…</p>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section aria-label="Quick Actions" class="mb-6">
+      <div class="card">
+        <div class="card__header"><h2 class="card__title">Quick Actions</h2></div>
+        <div class="card__body flex gap-3" style="flex-wrap:wrap;">
+          <button class="btn btn--primary" id="quick-attendance">Take Attendance</button>
+          <button class="btn btn--primary" id="quick-assignment">Create Assignment</button>
+          <button class="btn btn--secondary" id="quick-grades">Enter Grades</button>
+          <button class="btn btn--secondary" id="quick-export">Export Reports</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Submissions Needing Review -->
+    <section aria-label="Pending Submissions" class="mb-6">
+      <div class="card">
+        <div class="card__header"><h2 class="card__title">Pending Submissions</h2></div>
+        <div class="card__body" id="pending-submissions">
+          <p class="text-muted">Loading…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" id="modal">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-title">Modal</h2>
+        <button class="modal__close" id="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal__body" id="modal-body"></div>
+      <div class="modal__footer" id="modal-footer"></div>
+    </div>
+  </div>
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script type="module">
+    import { init } from './js/main.js';
+    init();
+  </script>
+</body>
+</html>

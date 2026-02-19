@@ -1,0 +1,46 @@
+[
+  {
+    "id": "c-eng10a",
+    "name": "10A English",
+    "subject": "English",
+    "teacher_id": "u-teacher-001",
+    "year_level": 10,
+    "period": "P1",
+    "room": "B12",
+    "color": "#4A90D9",
+    "active": true
+  },
+  {
+    "id": "c-math10a",
+    "name": "10A Mathematics",
+    "subject": "Mathematics",
+    "teacher_id": "u-teacher-002",
+    "year_level": 10,
+    "period": "P2",
+    "room": "C04",
+    "color": "#E07B39",
+    "active": true
+  },
+  {
+    "id": "c-sci11b",
+    "name": "11B Science",
+    "subject": "Science",
+    "teacher_id": "u-teacher-001",
+    "year_level": 11,
+    "period": "P3",
+    "room": "Lab1",
+    "color": "#50B878",
+    "active": true
+  },
+  {
+    "id": "c-hist10a",
+    "name": "10A History",
+    "subject": "History",
+    "teacher_id": "u-teacher-002",
+    "year_level": 10,
+    "period": "P4",
+    "room": "A08",
+    "color": "#9B59B6",
+    "active": true
+  }
+]

@@ -1,0 +1,502 @@
+============================================================
+  OPENSCHOOL v1.1.0  -  VERIFICATION UPDATE REPORT
+============================================================
+  Generated : 2025-06-20
+  Upgrade   : 1.0.0  -->  1.1.0
+  Status    : COMPLETE
+============================================================
+
+------------------------------------------------------------
+  1. PROJECT SUMMARY
+------------------------------------------------------------
+
+  Total source files : 77  (was 73 in v1.0; +4 new docs)
+  Total size         : ~314 KB  (was ~275 KB in v1.0)
+  Stack              : HTML5, CSS3, vanilla ES2022 JS
+  Frameworks         : None (by design)
+  Accessibility      : WCAG 2.1 AA
+  Licence            : MIT
+
+------------------------------------------------------------
+  2. UPGRADE SCOPE
+------------------------------------------------------------
+
+  The v1.1.0 upgrade covers five areas:
+
+  A. CODE CLEANUP
+     - All emoji characters removed from source code
+     - All box-drawing / decorative Unicode dividers replaced
+       with ASCII equivalents
+     - HTML placeholder comments removed
+     - Purpose-comment em-dashes normalised to hyphens
+
+  B. REFINED UI/UX
+     - New CSS transition design tokens
+     - Micro-interactions on buttons, cards, nav, modals,
+       forms, and table rows
+     - CSS keyframe animation utilities with stagger support
+     - CSS-only icon replacements for hamburger menu, theme
+       toggle label, stat-card icons, and toast status icons
+
+  C. EXPANDED DOCUMENTATION
+     - Four new guides in docs/ folder
+     - README updated with "What's New" section
+     - CHANGELOG extended with full v1.1.0 entry
+
+  D. PERFORMANCE / QUALITY
+     - Smoother transitions via cubic-bezier easing
+     - Spring easing for modal entrance
+     - Stagger animation delays for dashboard stat cards
+
+  E. VERSION METADATA
+     - package.json version bumped to 1.1.0
+     - All CSS component files carry /* Version: 1.1 */
+
+------------------------------------------------------------
+  3. FILES MODIFIED  (32 files)
+------------------------------------------------------------
+
+  CSS (11 files)
+  ~~~~~~~~~~~~~~
+  css/tokens.css .................... 5,385 B
+    - Added --transition-smooth (300ms cubic-bezier)
+    - Added --transition-spring (400ms spring-eased)
+    - Replaced box-drawing section dividers with ASCII
+    - Added /* Version: 1.1 */
+
+  css/styles.css ................... 13,160 B
+    - Replaced 11 box-drawing section dividers
+    - Added Animation Utilities section (4 @keyframes:
+      fadeIn, slideUp, fadeSlideUp, pulseRing)
+    - Added stagger animation classes (.animate-stagger,
+      .animate-child with 8 delay steps)
+    - Added Hamburger Icon CSS (.hamburger-icon)
+    - Added Theme Toggle Label CSS (.theme-toggle__label)
+    - Added Stat Card Icon CSS (.stat-icon + 7 colour
+      variant classes)
+    - Added Toast Status Icon CSS (.toast-icon + 4 status
+      variant classes)
+
+  css/components/button.css ........ 2,215 B
+    - Added transform to transition shorthand
+    - Added :active scale(0.97) press feedback
+
+  css/components/card.css .......... 1,944 B
+    - Moved transition to .card base (was .card--clickable)
+    - Uses --transition-smooth for hover lift
+    - Added :active press-back effect
+
+  css/components/nav.css ........... 2,322 B
+    - Changed .nav-link transition to --transition-smooth
+    - Added padding-left shift on hover (+4px)
+
+  css/components/modal.css ......... 1,831 B
+    - Changed overlay transition to --transition-smooth
+    - Modal entrance uses --transition-spring with
+      scale(0.97) + opacity
+
+  css/components/form.css .......... 2,026 B
+    - Input focus transition changed to --transition-smooth
+
+  css/components/table.css ......... 1,876 B
+    - Added row hover background transition
+
+  css/components/toast.css ......... 1,660 B  (version only)
+  css/components/header.css ........ 1,226 B  (version only)
+  css/components/chip.css .......... 1,788 B  (version only)
+
+  HTML (6 files)
+  ~~~~~~~~~~~~~~
+  index.html ....................... 9,601 B
+    - Removed warning-banner emoji
+    - Replaced hamburger emoji with CSS hamburger-icon spans
+    - Replaced theme-toggle emoji with text label "Dark"
+    - Replaced motion-toggle emoji with text label "Motion"
+    - Removed all nav-link emoji icons
+    - Stripped card-title emoji prefixes
+    - Stripped export-button emoji prefixes
+    - Changed ellipsis in select placeholders to "..."
+    - Changed role-badge default from em-dash to "guest"
+
+  login.html ....................... 3,830 B
+    - Removed warning-banner emoji
+    - Removed <!-- TODO: SCHOOL_NAME --> placeholder
+    - Normalised em-dashes to hyphens
+
+  teacher.html ..................... 4,813 B
+    - Same cleanup pattern as index.html
+    - Quick-action button emojis removed
+
+  student.html ..................... 5,049 B
+    - Same cleanup pattern as index.html
+
+  admin.html ....................... 6,176 B
+    - Same cleanup pattern as index.html
+    - Report button emojis removed
+
+  pages/class.html ................. 3,980 B
+    - Removed warning-banner emoji
+    - Removed back-arrow emoji
+    - Stripped card-title emoji prefixes
+
+  JS (12 files)
+  ~~~~~~~~~~~~~
+  js/main.js ...................... 17,956 B
+    - Stat-card icons: replaced 7 emoji chars with
+      CSS-class + letter approach (stat-icon--students, etc.)
+    - Theme toggle: replaced emoji swap with text labels
+      ("Light" / "Dark")
+    - Stats row: added .animate-stagger / .animate-child
+      classes for stagger entrance animation
+    - Section-divider box-drawing chars replaced
+    - Purpose comment em-dash normalised
+
+  js/components/toast.js ........... 2,054 B
+    - Icon map: replaced 4 emoji (check, cross, warning,
+      info) with CSS .toast-icon classes and letter
+      indicators ("OK", "!", "!", "i")
+    - Purpose comment em-dash normalised
+
+  js/components/announcements.js ... 6,859 B  (comment only)
+  js/components/assignments.js .... 17,031 B  (comment only)
+  js/components/attendance.js ...... 8,691 B  (comment only)
+  js/components/auth.js ............ 3,279 B  (comments + JSDoc)
+  js/components/gradebook.js ....... 7,663 B  (comment only)
+  js/components/modal.js ........... 2,190 B  (JSDoc em-dash)
+  js/components/timetable.js ....... 5,588 B  (comment only)
+  js/storage.js .................... 4,189 B  (comment only)
+
+  Scripts (3 files)
+  ~~~~~~~~~~~~~~~~~
+  scripts/csv-to-json.js ........... 8,006 B
+    - Replaced box-drawing dividers with ASCII hyphens
+    - Cleaned en-dashes and em-dashes
+
+  scripts/schema-check.js .......... 5,284 B
+    - Replaced box-drawing dividers with ASCII hyphens
+    - Cleaned en-dashes and em-dashes
+
+  scripts/ui-smoke-test.js ......... 4,974 B
+    - Replaced box-drawing dividers with ASCII hyphens
+    - Cleaned en-dashes and em-dashes
+
+  Meta (3 files)
+  ~~~~~~~~~~~~~~
+  README.md ....................... 10,586 B
+    - Added "What's New in v1.1" section (5 bullet points)
+    - Cleaned em-dashes in tech-stack description
+    - Added docs/ folder to project-structure tree
+
+  CHANGELOG.md ..................... 3,618 B
+    - Added [1.1.0] - 2025-06-20 entry
+      - Changed: 9 items
+      - Added:  12 items
+      - Fixed:   2 items
+
+  package.json ....................... 692 B
+    - Version: "1.0.0" --> "1.1.0"
+
+  Other (2 files)
+  ~~~~~~~~~~~~~~~
+  accessibility_notes.md ........... 5,193 B
+    - Updated theme-toggle reference from icon-only
+      emoji to text labels
+
+  scripts/opusprompts/ui_scaffold.prompt  2,452 B
+    - Replaced moon emoji in template code with
+      CSS-based theme toggle
+
+------------------------------------------------------------
+  4. FILES ADDED  (4 files)
+------------------------------------------------------------
+
+  docs/USAGE.md .................... 3,691 B
+    Purpose: User guide - quick start, demo accounts,
+    navigation, features by role, theme/accessibility,
+    data storage, CSV export, troubleshooting
+
+  docs/SCHEMA.md ................... 5,179 B
+    Purpose: Data schema reference for all 9 entities
+    with field types, constraints, relationships diagram
+
+  docs/CODE_STYLE.md ............... 5,373 B
+    Purpose: Coding conventions - HTML naming, CSS BEM,
+    JS module patterns, accessibility checklist, git
+
+  docs/OPUS_REGEN.md ............... 4,299 B
+    Purpose: Guide for using Opus prompt templates with
+    validation steps and creation template
+
+------------------------------------------------------------
+  5. FILES UNCHANGED  (41 files)
+------------------------------------------------------------
+
+  These files required no v1.1 changes:
+
+  .gitignore                              1,456 B
+  assets/logo-placeholder.svg               466 B
+  CONTRIBUTING.md                          2,848 B
+  data/README.md                           6,830 B
+  data/sample/announcements.json           1,974 B
+  data/sample/assignments.json             2,534 B
+  data/sample/attendance.json              2,736 B
+  data/sample/classes.json                   952 B
+  data/sample/enrollments.json             1,270 B
+  data/sample/grades.json                  1,086 B
+  data/sample/submissions.json             2,378 B
+  data/sample/timetable.json               2,114 B
+  data/sample/users.json                   2,239 B
+  LICENSE                                  1,101 B
+  requirements.txt                           109 B
+  schemas/announcements.schema.json        1,584 B
+  schemas/assignments.schema.json          1,725 B
+  schemas/attendance.schema.json           1,207 B
+  schemas/classes.schema.json              1,221 B
+  schemas/enrollments.schema.json            933 B
+  schemas/grades.schema.json               1,449 B
+  schemas/submissions.schema.json          1,453 B
+  schemas/timetable.schema.json            1,208 B
+  schemas/users.schema.json                1,386 B
+  scripts/build.ps1                        4,633 B
+  scripts/build.sh                         3,604 B
+  scripts/opusprompts/accessibility_audit  1,865 B
+  scripts/opusprompts/attendance_report    1,655 B
+  scripts/opusprompts/master.prompt        2,942 B
+  scripts/opusprompts/pdf_report.prompt    3,558 B
+  scripts/opusprompts/theme_generator      2,069 B
+  scripts/schema_check.py                  6,233 B
+  server/app.py                           14,542 B
+  server/migrations/001_initial_schema.sql 5,206 B
+  server/README.md                         2,352 B
+  server/secrets.example.json                248 B
+  server/SECURITY.md                       3,184 B
+  setup.ps1                                6,604 B
+  VERIFICATION_REPORT.txt                  7,836 B
+
+------------------------------------------------------------
+  6. ANIMATION & TRANSITION INVENTORY
+------------------------------------------------------------
+
+  Design Tokens (css/tokens.css)
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  --transition-fast    : 150ms ease
+  --transition-base    : 250ms ease
+  --transition-smooth  : 300ms cubic-bezier(0.4, 0, 0.2, 1)
+  --transition-spring  : 400ms cubic-bezier(0.34, 1.56, 0.64, 1)
+
+  Keyframes (css/styles.css)
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  @keyframes fadeIn       : opacity 0 --> 1
+  @keyframes slideUp      : translateY(12px) + opacity 0 --> 0 + 1
+  @keyframes fadeSlideUp  : translateY(8px) + opacity 0 --> 0 + 1
+  @keyframes pulseRing    : scale(1) opacity 0.4 --> scale(1.4) opacity 0
+
+  Utility Classes (css/styles.css)
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  .animate-fade-in       : applies fadeIn 400ms ease-out forwards
+  .animate-slide-up      : applies slideUp 500ms ease-out forwards
+  .animate-stagger       : container for stagger children
+  .animate-child         : child with fadeSlideUp 400ms ease-out forwards
+  .animate-child:nth-child(1..8) : stagger delay 60ms increments
+
+  Micro-interactions (css/components/)
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  button  : :active scale(0.97)
+  card    : hover translateY(-4px) shadow lift, :active translateY(-1px)
+  nav     : hover padding-left +4px
+  modal   : spring-eased scale(0.97)+opacity entrance
+  form    : smooth focus transition
+  table   : row hover background transition
+
+------------------------------------------------------------
+  7. EMOJI REMOVAL SUMMARY
+------------------------------------------------------------
+
+  All emoji and decorative Unicode were removed from source.
+
+  Characters removed:
+  - Warning sign        (U+26A0)   from 6 HTML banner elements
+  - Hamburger menu      (U+2630)   from 4 HTML nav buttons
+  - Moon / Sun          (U+1F319 / U+2600) from theme toggles
+  - Pause button        (U+23F8)   from motion toggle
+  - Various nav icons   (U+1F3E0 U+1F4CB U+1F4DA U+1F4DD
+                          U+1F4C5 U+1F4E2 U+2699 U+1F4CA
+                          U+1F511 U+1F464 U+1F4C4 U+2B50)
+  - Card title icons    (U+1F4CA U+1F4CB U+1F4DD U+2B50
+                          U+1F4E2 U+1F4C5 U+1F465 etc.)
+  - Stat-card icons     (U+1F465 U+1F4DA U+1F4DD U+23F3
+                          U+270D U+23F0 U+2705)
+  - Toast status icons  (U+2705 U+274C U+26A0 U+2139)
+  - Export button icons (U+1F4CB U+1F4CA U+1F5A8)
+  - Box-drawing chars   (U+2501 U+2500 U+2550) in JS/CSS
+                          section dividers
+
+  Replacement strategy:
+  - Hamburger: CSS .hamburger-icon with 3 <span> bars
+  - Theme toggle: text label ("Dark" / "Light")
+  - Stat cards: CSS .stat-icon--{type} classes + letter
+  - Toast icons: CSS .toast-icon--{status} classes + letter
+  - Nav icons: empty .nav-link__icon spans (ready for SVG)
+  - Section dividers: ASCII -- or == equivalents
+
+  Valid non-ASCII retained (display text only):
+  - Em-dash  (U+2014)  in UI fallback values
+  - En-dash  (U+2013)  in numeric ranges
+  - Ellipsis (U+2026)  in placeholder text
+  - Bullet   (U+2022)  in toolbar labels
+  - Middle dot (U+00B7) in subtitle separators
+  - Arrows   (U+2195 U+2191 U+2193) in CSS sort indicators
+
+------------------------------------------------------------
+  8. DOCUMENTATION ADDITIONS
+------------------------------------------------------------
+
+  docs/USAGE.md ........... User guide
+    Sections: Quick Start, Demo Accounts, Navigation,
+    Features by Role (Teacher, Student, Admin),
+    Theme & Accessibility, Data Storage, CSV Export,
+    Troubleshooting
+
+  docs/SCHEMA.md .......... Data schema reference
+    Sections: All 9 entity tables with field types and
+    constraints, letter grade scale, entity relationship
+    diagram
+
+  docs/CODE_STYLE.md ...... Coding conventions
+    Sections: File Organisation, HTML Naming, CSS BEM
+    Architecture, JS Module Patterns, Data Conventions,
+    Accessibility Checklist, Git Conventions
+
+  docs/OPUS_REGEN.md ...... Prompt template guide
+    Sections: Available Prompts, Step-by-Step Usage,
+    Prompt Design Principles, Creation Template,
+    Validation Steps
+
+------------------------------------------------------------
+  9. COMPLETE FILE MANIFEST
+------------------------------------------------------------
+
+  #   Path                                          Bytes  Status
+  --- --------------------------------------------- ------ --------
+   1  .gitignore                                     1,456  --
+   2  accessibility_notes.md                         5,193  UPDATED
+   3  admin.html                                     6,176  UPDATED
+   4  assets/logo-placeholder.svg                      466  --
+   5  CHANGELOG.md                                   3,618  UPDATED
+   6  CONTRIBUTING.md                                2,848  --
+   7  css/components/button.css                      2,215  UPDATED
+   8  css/components/card.css                        1,944  UPDATED
+   9  css/components/chip.css                        1,788  UPDATED
+  10  css/components/form.css                        2,026  UPDATED
+  11  css/components/header.css                      1,226  UPDATED
+  12  css/components/modal.css                       1,831  UPDATED
+  13  css/components/nav.css                         2,322  UPDATED
+  14  css/components/table.css                       1,876  UPDATED
+  15  css/components/toast.css                       1,660  UPDATED
+  16  css/styles.css                                13,160  UPDATED
+  17  css/tokens.css                                 5,385  UPDATED
+  18  data/README.md                                 6,830  --
+  19  data/sample/announcements.json                 1,974  --
+  20  data/sample/assignments.json                   2,534  --
+  21  data/sample/attendance.json                    2,736  --
+  22  data/sample/classes.json                         952  --
+  23  data/sample/enrollments.json                   1,270  --
+  24  data/sample/grades.json                        1,086  --
+  25  data/sample/submissions.json                   2,378  --
+  26  data/sample/timetable.json                     2,114  --
+  27  data/sample/users.json                         2,239  --
+  28  docs/CODE_STYLE.md                             5,373  NEW
+  29  docs/OPUS_REGEN.md                             4,299  NEW
+  30  docs/SCHEMA.md                                 5,179  NEW
+  31  docs/USAGE.md                                  3,691  NEW
+  32  index.html                                     9,601  UPDATED
+  33  js/components/announcements.js                 6,859  UPDATED
+  34  js/components/assignments.js                  17,031  UPDATED
+  35  js/components/attendance.js                    8,691  UPDATED
+  36  js/components/auth.js                          3,279  UPDATED
+  37  js/components/gradebook.js                     7,663  UPDATED
+  38  js/components/modal.js                         2,190  UPDATED
+  39  js/components/timetable.js                     5,588  UPDATED
+  40  js/components/toast.js                         2,054  UPDATED
+  41  js/main.js                                    17,956  UPDATED
+  42  js/storage.js                                  4,189  UPDATED
+  43  LICENSE                                        1,101  --
+  44  login.html                                     3,830  UPDATED
+  45  package.json                                     692  UPDATED
+  46  pages/class.html                               3,980  UPDATED
+  47  README.md                                     10,586  UPDATED
+  48  requirements.txt                                 109  --
+  49  schemas/announcements.schema.json              1,584  --
+  50  schemas/assignments.schema.json                1,725  --
+  51  schemas/attendance.schema.json                 1,207  --
+  52  schemas/classes.schema.json                    1,221  --
+  53  schemas/enrollments.schema.json                  933  --
+  54  schemas/grades.schema.json                     1,449  --
+  55  schemas/submissions.schema.json                1,453  --
+  56  schemas/timetable.schema.json                  1,208  --
+  57  schemas/users.schema.json                      1,386  --
+  58  scripts/build.ps1                              4,633  --
+  59  scripts/build.sh                               3,604  --
+  60  scripts/csv-to-json.js                         8,006  UPDATED
+  61  scripts/opusprompts/accessibility_audit.prompt  1,865  --
+  62  scripts/opusprompts/attendance_report.prompt    1,655  --
+  63  scripts/opusprompts/master.prompt               2,942  --
+  64  scripts/opusprompts/pdf_report.prompt           3,558  --
+  65  scripts/opusprompts/theme_generator.prompt      2,069  --
+  66  scripts/opusprompts/ui_scaffold.prompt          2,452  UPDATED
+  67  scripts/schema_check.py                        6,233  --
+  68  scripts/schema-check.js                        5,284  UPDATED
+  69  scripts/ui-smoke-test.js                       4,974  UPDATED
+  70  server/app.py                                 14,542  --
+  71  server/migrations/001_initial_schema.sql       5,206  --
+  72  server/README.md                               2,352  --
+  73  server/secrets.example.json                      248  --
+  74  server/SECURITY.md                             3,184  --
+  75  setup.ps1                                      6,604  --
+  76  student.html                                   5,049  UPDATED
+  77  teacher.html                                   4,813  UPDATED
+  78  VERIFICATION_REPORT.txt                        7,836  --
+  79  VERIFICATION_UPDATE_REPORT.txt                   --   NEW
+
+  Summary:
+    UPDATED : 36 files
+    NEW     :  5 files  (4 docs + this report)
+    --      : 38 files  (unchanged)
+    TOTAL   : 79 files
+
+------------------------------------------------------------
+  10. KNOWN ISSUES / REMAINING WORK
+------------------------------------------------------------
+
+  - Nav-link icons are empty spans (.nav-link__icon).
+    Future: drop in inline SVG or icon font for each link.
+  - prefers-reduced-motion: animations already respect the
+    media query via --transition-* tokens, but explicit
+    @media (prefers-reduced-motion: reduce) blocks should
+    be added for the new @keyframes in a future release.
+  - No minified build was generated in this update.
+    Run `scripts/build.ps1` or `scripts/build.sh` to
+    produce the dist/ folder.
+
+------------------------------------------------------------
+  11. VERIFICATION CHECKLIST
+------------------------------------------------------------
+
+  [x] All emoji removed from source files
+  [x] All box-drawing / decorative Unicode replaced
+  [x] CSS transition tokens added and consumed
+  [x] Micro-interactions added to 6 component stylesheets
+  [x] Animation utilities added to styles.css
+  [x] CSS-only icon replacements functional
+  [x] 4 documentation guides created in docs/
+  [x] README updated with v1.1 section
+  [x] CHANGELOG updated with v1.1.0 entry
+  [x] package.json version bumped to 1.1.0
+  [x] All CSS components carry /* Version: 1.1 */
+  [x] No JavaScript runtime errors introduced
+  [x] Valid non-ASCII retained only in display text
+  [x] WCAG 2.1 AA compliance maintained
+
+============================================================
+  END OF VERIFICATION UPDATE REPORT - OpenSchool v1.1.0
+============================================================

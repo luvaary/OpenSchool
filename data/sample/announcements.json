@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ann-001",
+    "title": "Welcome to Term 1, 2025",
+    "content": "<p>Welcome back to <strong>TODO: SCHOOL_NAME</strong>! We hope you had a restful break. Please check your timetables and contact the office if you have any questions.</p>",
+    "author_id": "u-admin-001",
+    "published": true,
+    "created_at": "2025-02-01T08:00:00Z",
+    "updated_at": null,
+    "visible_to": ["admin", "teacher", "student", "parent"],
+    "priority": "important",
+    "expires_at": "2025-03-01T00:00:00Z"
+  },
+  {
+    "id": "ann-002",
+    "title": "Staff Meeting — Friday 3:30 PM",
+    "content": "<p>Reminder: staff meeting this Friday at 3:30 PM in the staffroom. Agenda: assessment policy review and upcoming events.</p>",
+    "author_id": "u-admin-001",
+    "published": true,
+    "created_at": "2025-02-15T07:00:00Z",
+    "updated_at": null,
+    "visible_to": ["admin", "teacher"],
+    "priority": "normal",
+    "expires_at": "2025-02-22T00:00:00Z"
+  },
+  {
+    "id": "ann-003",
+    "title": "Swimming Carnival — March 5",
+    "content": "<p>The annual swimming carnival will be held on <strong>March 5</strong> at the local aquatic centre. Permission forms are due by February 28. See your homeroom teacher for details.</p>",
+    "author_id": "u-admin-001",
+    "published": true,
+    "created_at": "2025-02-10T12:00:00Z",
+    "updated_at": "2025-02-12T09:00:00Z",
+    "visible_to": ["admin", "teacher", "student", "parent"],
+    "priority": "normal",
+    "expires_at": "2025-03-06T00:00:00Z"
+  },
+  {
+    "id": "ann-004",
+    "title": "System Maintenance Notice",
+    "content": "<p>Planned maintenance window: Saturday Feb 22, 10 PM – Sunday Feb 23, 6 AM. The system may be briefly unavailable.</p>",
+    "author_id": "u-admin-001",
+    "published": false,
+    "created_at": "2025-02-18T16:00:00Z",
+    "updated_at": null,
+    "visible_to": ["admin"],
+    "priority": "urgent",
+    "expires_at": null
+  }
+]

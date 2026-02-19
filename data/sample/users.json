@@ -1,0 +1,90 @@
+[
+  {
+    "id": "u-admin-001",
+    "username": "admin",
+    "display_name": "Pat Morgan (Admin)",
+    "role": "admin",
+    "email": "admin@openschool.local",
+    "active": true,
+    "year_level": null,
+    "created_at": "2025-01-15T08:00:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "u-teacher-001",
+    "username": "teacher",
+    "display_name": "Alex Rivera",
+    "role": "teacher",
+    "email": "a.rivera@openschool.local",
+    "active": true,
+    "year_level": null,
+    "created_at": "2025-01-15T08:00:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "u-teacher-002",
+    "username": "jchen",
+    "display_name": "Jordan Chen",
+    "role": "teacher",
+    "email": "j.chen@openschool.local",
+    "active": true,
+    "year_level": null,
+    "created_at": "2025-01-16T09:00:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "u-student-001",
+    "username": "student",
+    "display_name": "Sam Taylor",
+    "role": "student",
+    "email": "s.taylor@openschool.local",
+    "active": true,
+    "year_level": 10,
+    "created_at": "2025-02-01T08:00:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "u-student-002",
+    "username": "mlee",
+    "display_name": "Morgan Lee",
+    "role": "student",
+    "email": "m.lee@openschool.local",
+    "active": true,
+    "year_level": 10,
+    "created_at": "2025-02-01T08:00:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "u-student-003",
+    "username": "jsmith",
+    "display_name": "Jamie Smith",
+    "role": "student",
+    "email": "j.smith@openschool.local",
+    "active": true,
+    "year_level": 11,
+    "created_at": "2025-02-01T08:00:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "u-student-004",
+    "username": "ckhan",
+    "display_name": "Casey Khan",
+    "role": "student",
+    "email": "c.khan@openschool.local",
+    "active": true,
+    "year_level": 10,
+    "created_at": "2025-02-01T08:00:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "u-student-005",
+    "username": "rwilson",
+    "display_name": "Riley Wilson",
+    "role": "student",
+    "email": "r.wilson@openschool.local",
+    "active": true,
+    "year_level": 11,
+    "created_at": "2025-02-01T08:00:00Z",
+    "avatar_url": null
+  }
+]

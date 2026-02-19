@@ -1,0 +1,29 @@
+// Purpose: JSON Schema for Announcement records — school-wide or role-targeted messages
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "announcements.schema.json",
+  "title": "Announcements",
+  "description": "Schema for school announcements/notices with role-based visibility.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "title", "content", "author_id", "published", "created_at", "visible_to"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique announcement ID" },
+      "title": { "type": "string", "description": "Announcement headline" },
+      "content": { "type": "string", "description": "HTML content (safe subset)" },
+      "author_id": { "type": "string", "description": "Author user ID" },
+      "published": { "type": "boolean", "description": "Published state" },
+      "created_at": { "type": "string", "format": "date-time", "description": "Creation timestamp" },
+      "updated_at": { "type": ["string", "null"], "format": "date-time", "description": "Last edit timestamp" },
+      "visible_to": {
+        "type": "array",
+        "items": { "type": "string", "enum": ["admin", "teacher", "student", "parent"] },
+        "description": "Roles that can see this announcement"
+      },
+      "priority": { "type": "string", "enum": ["normal", "important", "urgent"], "description": "Priority level" },
+      "expires_at": { "type": ["string", "null"], "format": "date-time", "description": "Optional expiry" }
+    },
+    "additionalProperties": false
+  }
+}

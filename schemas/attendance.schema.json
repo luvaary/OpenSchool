@@ -1,0 +1,23 @@
+// Purpose: JSON Schema for Attendance records — daily class attendance tracking
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "attendance.schema.json",
+  "title": "AttendanceRecords",
+  "description": "Schema for daily attendance tracking per class.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "class_id", "student_id", "date", "status"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique attendance record ID" },
+      "class_id": { "type": "string", "description": "Class reference" },
+      "student_id": { "type": "string", "description": "Student user reference" },
+      "date": { "type": "string", "format": "date", "description": "Attendance date (YYYY-MM-DD)" },
+      "status": { "type": "string", "enum": ["present", "absent", "late", "excused"], "description": "Attendance status" },
+      "recorded_by": { "type": "string", "description": "Teacher who recorded" },
+      "recorded_at": { "type": "string", "format": "date-time", "description": "When recorded" },
+      "note": { "type": ["string", "null"], "description": "Optional note" }
+    },
+    "additionalProperties": false
+  }
+}
